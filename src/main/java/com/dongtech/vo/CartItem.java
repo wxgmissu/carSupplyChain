@@ -7,14 +7,14 @@ import java.io.Serializable;
  *   @author  PF
  */
 public class CartItem implements Serializable {
-    private CarGoods carGoods;
+    private Cargoods carGoods;
     private int count;
 
-    public CarGoods getCarGoods() {
+    public Cargoods getCarGoods() {
         return carGoods;
     }
 
-    public void setCarGoods(CarGoods carGoods) {
+    public void setCarGoods(Cargoods carGoods) {
         this.carGoods = carGoods;
     }
 

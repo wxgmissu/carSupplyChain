@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dongtech.dao.CargoodsMapper">
+    <resultMap id="BaseResultMap" type="com.dongtech.vo.Cargoods">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="number" jdbcType="VARCHAR" property="number"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="produce" jdbcType="VARCHAR" property="produce"/>
+        <result column="price" jdbcType="DECIMAL" property="price"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="description" jdbcType="VARCHAR" property="description"/>
+        <result column="num" jdbcType="INTEGER" property="num"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, `number`, `name`, produce, price, `type`, description, num
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from cargoods
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from cargoods
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dongtech.vo.Cargoods"
+            useGeneratedKeys="true">
+    insert into cargoods (`number`, `name`, produce, 
+      price, `type`, description, 
+      num)
+    values (#{number,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{produce,jdbcType=VARCHAR}, 
+      #{price,jdbcType=DECIMAL}, #{type,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{num,jdbcType=INTEGER})
+  </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.dongtech.vo.Cargoods"
+            useGeneratedKeys="true">
+        insert into cargoods
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="number != null">
+                `number`,
+            </if>
+            <if test="name != null">
+                `name`,
+            </if>
+            <if test="produce != null">
+                produce,
+            </if>
+            <if test="price != null">
+                price,
+            </if>
+            <if test="type != null">
+                `type`,
+            </if>
+            <if test="description != null">
+                description,
+            </if>
+            <if test="num != null">
+                num,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="number != null">
+                #{number,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="produce != null">
+                #{produce,jdbcType=VARCHAR},
+            </if>
+            <if test="price != null">
+                #{price,jdbcType=DECIMAL},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="num != null">
+                #{num,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.dongtech.vo.Cargoods">
+        update cargoods
+        <set>
+            <if test="number != null">
+                `number` = #{number,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                `name` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="produce != null">
+                produce = #{produce,jdbcType=VARCHAR},
+            </if>
+            <if test="price != null">
+                price = #{price,jdbcType=DECIMAL},
+            </if>
+            <if test="type != null">
+                `type` = #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                description = #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="num != null">
+                num = #{num,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.dongtech.vo.Cargoods">
+    update cargoods
+    set `number` = #{number,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      produce = #{produce,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      `type` = #{type,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      num = #{num,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

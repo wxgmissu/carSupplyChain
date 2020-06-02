@@ -8,9 +8,9 @@ import java.math.BigDecimal;
  * @program: springboot-jsp
  * @description: ${description}
  */
-public class CarOrderDetails {
+public class CarOrdersDetails {
     private Long id;
-    private String goodsname;
+    private String goodsName;
     private Integer num;
     //出厂地址
     private String produce;
@@ -19,12 +19,12 @@ public class CarOrderDetails {
 
     private Integer orderId;
 
-    public CarOrderDetails() {
+    public CarOrdersDetails() {
     }
 
-    public CarOrderDetails(Long id, String goodsname, Integer num, String produce, BigDecimal price, Integer orderId) {
+    public CarOrdersDetails(Long id, String goodsName, Integer num, String produce, BigDecimal price, Integer orderId) {
         this.id = id;
-        this.goodsname = goodsname;
+        this.goodsName = goodsName;
         this.num = num;
         this.produce = produce;
         this.price = price;
@@ -39,12 +39,12 @@ public class CarOrderDetails {
         this.id = id;
     }
 
-    public String getGoodsname() {
-        return goodsname;
+    public String getGoodsName() {
+        return goodsName;
     }
 
-    public void setGoodsname(String goodsname) {
-        this.goodsname = goodsname;
+    public void setGoodsName(String goodsName) {
+        this.goodsName = goodsName;
     }
 
     public Integer getNum() {

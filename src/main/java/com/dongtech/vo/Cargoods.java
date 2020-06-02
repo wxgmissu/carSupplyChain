@@ -8,7 +8,7 @@ import java.math.BigDecimal;
  * @program: springboot-jsp
  * @description: ${description}
  */
-public class CarGoods {
+public class Cargoods {
     private Long id;//编号
     private String number;//编号
     private String name;//名称
@@ -82,10 +82,10 @@ public class CarGoods {
         this.description = description;
     }
 
-    public CarGoods() {
+    public Cargoods() {
     }
 
-    public CarGoods(Long id, String number, String name, String produce, BigDecimal price, String type, String description, Integer num) {
+    public Cargoods(Long id, String number, String name, String produce, BigDecimal price, String type, String description, Integer num) {
         this.id = id;
         this.number = number;
         this.name = name;

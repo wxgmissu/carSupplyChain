@@ -1,7 +1,5 @@
 package com.dongtech.vo;
 
-import java.math.BigDecimal;
-
 /**
  * @author gzl
  * @date 2020-04-15
@@ -12,7 +10,7 @@ public class TearDownDetails {
     private Long id;
     private Integer orderId;
     private String produce;
-    private String cargoods_name;
+    private String cargoodsName;
     private Integer num;
 
     public Long getId() {
@@ -39,12 +37,12 @@ public class TearDownDetails {
         this.produce = produce;
     }
 
-    public String getCargoods_name() {
-        return cargoods_name;
+    public String getCargoodsName() {
+        return cargoodsName;
     }
 
-    public void setCargoods_name(String cargoods_name) {
-        this.cargoods_name = cargoods_name;
+    public void setCargoodsName(String cargoodsName) {
+        this.cargoodsName = cargoodsName;
     }
 
     public Integer getNum() {
@@ -58,11 +56,11 @@ public class TearDownDetails {
     public TearDownDetails() {
     }
 
-    public TearDownDetails(Long id, Integer orderId, String produce, String cargoods_name, Integer num) {
+    public TearDownDetails(Long id, Integer orderId, String produce, String cargoodsName, Integer num) {
         this.id = id;
         this.orderId = orderId;
         this.produce = produce;
-        this.cargoods_name = cargoods_name;
+        this.cargoodsName = cargoodsName;
         this.num = num;
     }
 }

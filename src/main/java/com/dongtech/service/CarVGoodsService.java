@@ -8,13 +8,13 @@ import java.util.List;
 @Service
 public interface CarVGoodsService {
 
-    List<CarGoods> queryList(CarGoods carGoods) throws SQLException;
+    List<Cargoods> queryList(Cargoods carGoods) throws SQLException;
 
 
 
     List<CarOrders> queryOrders();
 
-    List<CarOrderDetails> queryOrdersDetails(Integer id);
+    List<CarOrdersDetails> queryOrdersDetails(Integer id);
 
 
 }

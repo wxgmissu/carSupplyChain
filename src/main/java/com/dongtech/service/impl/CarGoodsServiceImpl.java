@@ -17,7 +17,7 @@ public class CarGoodsServiceImpl implements CarVGoodsService {
 
 
     @Override
-    public List<CarGoods> queryList(CarGoods carGoods) throws SQLException {
+    public List<Cargoods> queryList(Cargoods carGoods) throws SQLException {
         return dao.queryList(carGoods);
     }
 
@@ -27,7 +27,7 @@ public class CarGoodsServiceImpl implements CarVGoodsService {
     }
 
     @Override
-    public List<CarOrderDetails> queryOrdersDetails(Integer id) {
+    public List<CarOrdersDetails> queryOrdersDetails(Integer id) {
         return dao.queryOrdersDetails(id);
     }
 

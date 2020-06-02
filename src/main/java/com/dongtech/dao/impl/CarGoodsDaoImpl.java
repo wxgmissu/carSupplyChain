@@ -20,11 +20,11 @@ public class CarGoodsDaoImpl implements CarGoodsDao {
 
 
     @Override
-    public List<CarGoods> queryList(CarGoods carGoods) {
+    public List<Cargoods> queryList(Cargoods carGoods) {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        List<CarGoods> bookList = new ArrayList<CarGoods>();
+        List<Cargoods> bookList = new ArrayList<Cargoods>();
         try {
             //1 加载数据库驱动  2 获取数据库连接
             conn = JDBCUtil.getMysqlConn();
@@ -44,7 +44,7 @@ public class CarGoodsDaoImpl implements CarGoodsDao {
             rs = ps.executeQuery();
             //4 处理返回数据——将返回的一条记录封装到一个JavaBean对象
             while (rs.next()) {
-                CarGoods vo = new CarGoods(rs.getLong("id"),
+                Cargoods vo = new Cargoods(rs.getLong("id"),
                         rs.getString("number"),
                         rs.getString("name"),
                         rs.getString("produce"),
@@ -111,11 +111,11 @@ public class CarGoodsDaoImpl implements CarGoodsDao {
      * @Date： 2020/4/20 12:17 AM
      */
     @Override
-    public List<CarOrderDetails> queryOrdersDetails(Integer id) {
+    public List<CarOrdersDetails> queryOrdersDetails(Integer id) {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        List<CarOrderDetails> carOrderDetailsList = new ArrayList<CarOrderDetails>();
+        List<CarOrdersDetails> carOrdersDetailsList = new ArrayList<CarOrdersDetails>();
         try {
             //1 加载数据库驱动  2 获取数据库连接
             conn = JDBCUtil.getMysqlConn();
@@ -129,7 +129,7 @@ public class CarGoodsDaoImpl implements CarGoodsDao {
             rs = ps.executeQuery();
             //4 处理返回数据——将返回的一条记录封装到一个JavaBean对象
             while (rs.next()) {
-                CarOrderDetails vo = new CarOrderDetails(rs.getLong("id"),
+                CarOrdersDetails vo = new CarOrdersDetails(rs.getLong("id"),
                         rs.getString("goods_name"),
                         rs.getInt("num"),
                         rs.getString("produce"),
@@ -137,7 +137,7 @@ public class CarGoodsDaoImpl implements CarGoodsDao {
                         rs.getInt("order_id")
 
                 );
-                carOrderDetailsList.add(vo);
+                carOrdersDetailsList.add(vo);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -145,7 +145,7 @@ public class CarGoodsDaoImpl implements CarGoodsDao {
             //5 关闭连接
             JDBCUtil.close(rs, ps, conn);
         }
-        return carOrderDetailsList;
+        return carOrdersDetailsList;
     }
 
 

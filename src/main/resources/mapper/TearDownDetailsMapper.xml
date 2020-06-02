@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dongtech.dao.TearDownDetailsMapper">
+  <resultMap id="BaseResultMap" type="com.dongtech.vo.TearDownDetails">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="produce" jdbcType="VARCHAR" property="produce" />
+    <result column="cargoods_name" jdbcType="VARCHAR" property="cargoodsName" />
+    <result column="num" jdbcType="INTEGER" property="num" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, order_id, produce, cargoods_name, num
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tear_down_details
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tear_down_details
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="generate.TearDownDetails" useGeneratedKeys="true">
+    insert into tear_down_details (order_id, produce, cargoods_name, 
+      num)
+    values (#{orderId,jdbcType=INTEGER}, #{produce,jdbcType=VARCHAR}, #{cargoodsName,jdbcType=VARCHAR}, 
+      #{num,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="generate.TearDownDetails" useGeneratedKeys="true">
+    insert into tear_down_details
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="produce != null">
+        produce,
+      </if>
+      <if test="cargoodsName != null">
+        cargoods_name,
+      </if>
+      <if test="num != null">
+        num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="produce != null">
+        #{produce,jdbcType=VARCHAR},
+      </if>
+      <if test="cargoodsName != null">
+        #{cargoodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null">
+        #{num,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="generate.TearDownDetails">
+    update tear_down_details
+    <set>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="produce != null">
+        produce = #{produce,jdbcType=VARCHAR},
+      </if>
+      <if test="cargoodsName != null">
+        cargoods_name = #{cargoodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null">
+        num = #{num,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="generate.TearDownDetails">
+    update tear_down_details
+    set order_id = #{orderId,jdbcType=INTEGER},
+      produce = #{produce,jdbcType=VARCHAR},
+      cargoods_name = #{cargoodsName,jdbcType=VARCHAR},
+      num = #{num,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

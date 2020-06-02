@@ -1,10 +1,11 @@
 package com.dongtech.controller;
 
 import com.dongtech.service.CarVGoodsService;
-import com.dongtech.vo.CarGoods;
-import com.dongtech.vo.CarOrderDetails;
+import com.dongtech.vo.Cargoods;
+import com.dongtech.vo.CarOrdersDetails;
 import com.dongtech.vo.CarOrders;
 import com.dongtech.vo.Cart;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -29,8 +30,7 @@ import java.util.List;
 @RequestMapping("cargoods")
 public class CarGoodsController {
 
-
-    @Resource
+    @Autowired
     private  CarVGoodsService carVGoodsService;
 
 
@@ -40,8 +40,8 @@ public class CarGoodsController {
      * @Exception
      */
     @RequestMapping("/queryList")
-    public ModelAndView queryList(CarGoods carGoods)  {
-        List<CarGoods> list = new ArrayList<>();
+    public ModelAndView queryList(Cargoods carGoods)  {
+        List<Cargoods> list = new ArrayList<>();
         try {
             list = carVGoodsService.queryList(carGoods);
         } catch (SQLException e) {
@@ -91,7 +91,7 @@ public class CarGoodsController {
      */
     @RequestMapping("/queryordersdetails")
     public ModelAndView QueryOrdersDetails(Integer id)  {
-        List<CarOrderDetails> list =carVGoodsService.queryOrdersDetails(id);
+        List<CarOrdersDetails> list =carVGoodsService.queryOrdersDetails(id);
         /**
          * 模型和视图
          * model模型: 模型对象中存放了返回给页面的数据
